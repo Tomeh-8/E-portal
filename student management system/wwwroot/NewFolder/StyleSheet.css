@@ -1,0 +1,30 @@
+﻿
+
+header img {
+    height:100px;
+    width:100px;
+}
+
+nav .firstLink li {
+    margin-right: 100px;
+}
+
+
+nav .firstLink li a {
+    font-size:20px;
+    color:white;
+}
+
+nav .secondLink li {
+    
+    background-color: #a7dbd8;
+    padding: 5px 15px;
+    border: 2px solid #e0e4cc;
+    border-radius: 30px;
+    margin-right:20px;
+}  
+
+nav .secondLink li a {
+  color: #fff;
+}
+

@@ -1,0 +1,39 @@
+﻿
+
+header img {
+    height: 100px;
+    width: 100px;
+}
+
+nav .firstLink li {
+    margin-right: 100px;
+}
+
+    nav .firstLink li a:hover {
+        background-color: mediumpurple;
+        border: 2px solid #e0e4cc;
+        padding: 5px 15px;
+        border-radius: 30px;
+        color: #fff;
+    }
+
+    nav .firstLink li a {
+        font-size: 20px;
+    }
+
+nav .secondLink li {
+    background-color: mediumpurple;
+    padding: 5px 15px;
+    border: 2px solid #e0e4cc;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+ nav .secondLink li a {
+    color: #fff;
+ }
+
+.carousel-item img {
+    width:1200px;
+    height:500px;
+}
