@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace student_management_system.Models
 {
-    public class login
+    public class Login
     {
         public int Id { get; set; }
 
-        public string Username { get; set; }
+        public string Email { get; set; }
 
         public string password { get; set; }
     }

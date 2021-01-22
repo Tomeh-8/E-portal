@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container">
-                <a class="navbar-brand img-fluid" asp-area="" asp-controller="Home" asp-action="Index"><img src="/images/logo.png" alt="school logo" /></a>
+                <a class="navbar-brand img-fluid" asp-area="" asp-controller="Student" asp-action="Index"><img src="/images/logo.png" alt="school logo" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,21 +21,21 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto firstLink">
                         <li class="nav-item">
-                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="Contact">Contact Us</a>
                         </li>
                     </ul>
 
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto secondLink">
-                        <li class="nav-item"><a class="nav-link text-white" href="#">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#">Register</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
                     </ul>
                 </div>
 
