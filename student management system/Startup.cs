@@ -27,8 +27,14 @@ namespace student_management_system
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContextPool<StudentDbcontext>(options => options.UseSqlServer(Configuration.GetConnectionString("StudentyDBConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<StudentDbcontext>();
+            services.AddDbContextPool<StudentDbcontext>(options => options.UseSqlServer(Configuration.GetConnectionString("StudentDBConnection")));
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<StudentDbcontext>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@";
+                options.User.RequireUniqueEmail = true;
+            });
             
         }
 

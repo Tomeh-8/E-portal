@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace student_management_system.Models
 {
-    public class StudentDbcontext:IdentityDbContext
+    public class StudentDbcontext:IdentityDbContext<ApplicationUser>
     {
         public StudentDbcontext(DbContextOptions<StudentDbcontext> options) : base(options)
         {
 
         }
-        public DbSet<Login> students { get; set; }
+        public DbSet<Register> students { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 
   

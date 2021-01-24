@@ -10,6 +10,7 @@ namespace student_management_system.Controllers
 {
     public class StudentController : Controller
     {
+        
         // GET: StudentController
         public ActionResult Index()
         {
