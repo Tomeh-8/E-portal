@@ -8,8 +8,5 @@ namespace student_management_system.Models
 {
     public class ApplicationUser:IdentityUser
     {
-       public string FirstName { get; set; }
-
-        public string LastName { get; set; }
     }
 }

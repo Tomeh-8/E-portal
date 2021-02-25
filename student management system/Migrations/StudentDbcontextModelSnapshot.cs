@@ -169,12 +169,6 @@ namespace student_management_system.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -221,18 +215,37 @@ namespace student_management_system.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("student_management_system.Models.Register", b =>
+            modelBuilder.Entity("student_management_system.Models.Course", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ConfirmPassword")
+                    b.Property<int>("CourseCode")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("CourseStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CourseTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.HasKey("Id");
+
+                    b.ToTable("studentCourse");
+                });
+
+            modelBuilder.Entity("student_management_system.Models.Student", b =>
+                {
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -240,12 +253,18 @@ namespace student_management_system.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Nationality")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("int");
 
-                    b.ToTable("students");
+                    b.Property<string>("StateOfOrigin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StudentId");
+
+                    b.ToTable("studentInfo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -295,6 +314,15 @@ namespace student_management_system.Migrations
                     b.HasOne("student_management_system.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("student_management_system.Models.Student", b =>
+                {
+                    b.HasOne("student_management_system.Models.ApplicationUser", "User")
+                        .WithOne("Student")
+                        .HasForeignKey("student_management_system.Models.Student", "StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

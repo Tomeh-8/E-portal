@@ -13,7 +13,13 @@ namespace student_management_system.Models
         {
 
         }
-        public DbSet<Register> students { get; set; }
+     
+        public DbSet<Course> studentCourse { get; set; }
+
+        public DbSet<Student> studentInfo { get; set; }
+
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

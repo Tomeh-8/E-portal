@@ -1,15 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - student_management_system</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/NewFolder/Styles.css" rel="stylesheet" />
+    <link href="~/NewFolder/StyleSheet.css" rel="stylesheet" />
 
 </head>
-<body>
+<body class="bg-dark">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container">
@@ -27,15 +28,32 @@
                             <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="Contact">Contact Us</a>
+                            <i class="fa fa-envelope" aria-hidden="true"></i><a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="Contact">Contact Us</a>
                         </li>
                     </ul>
 
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto secondLink">
-                        <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form asp-action="logout" asp-controller="account" method="post">
+                                    <button type="submit">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Register</a> </li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
+
+                        }
+
                     </ul>
                 </div>
 

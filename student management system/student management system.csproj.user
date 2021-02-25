@@ -15,5 +15,6 @@
     <WebStackScaffolding_IdentityDialogWidth>600</WebStackScaffolding_IdentityDialogWidth>
     <Controller_SelectedScaffolderID>MvcControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Controller</Controller_SelectedScaffolderCategoryPath>
+    <WebStackScaffolding_DbContextTypeFullName>student_management_system.Models.StudentDbcontext</WebStackScaffolding_DbContextTypeFullName>
   </PropertyGroup>
 </Project>
