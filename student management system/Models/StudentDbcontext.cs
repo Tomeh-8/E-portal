@@ -14,7 +14,7 @@ namespace student_management_system.Models
 
         }
      
-        public DbSet<Course> studentCourse { get; set; }
+        public DbSet<StudentCourse> studentCourse { get; set; }
 
         public DbSet<Student> studentInfo { get; set; }
 
@@ -23,6 +23,11 @@ namespace student_management_system.Models
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+               /*  builder.Entity<Student>()
+                .HasMany(s => s.StudentCourses)
+                .WithMany(t => t.Students); */
+            
+
             base.OnModelCreating(builder);
         }
     }

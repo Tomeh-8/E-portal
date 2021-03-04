@@ -25,5 +25,7 @@ namespace student_management_system.Models
         public int PhoneNumber { get; set; }
 
         public string Address { get; set; }
+
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }
