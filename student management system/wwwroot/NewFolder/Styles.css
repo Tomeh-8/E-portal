@@ -1,4 +1,7 @@
-﻿
+﻿body {
+    background-color: #f6f8f8;
+    font-family: 'Poppins', sans-serif;
+}
 header img {
     height: 100px;
     width: 100px;
@@ -8,12 +11,12 @@ nav .firstLink li {
     margin-right: 100px;
 }
 
-    nav .firstLink li a:hover {
+    nav .firstLink li:hover a {
         background-color: mediumpurple;
         border: 2px solid #e0e4cc;
         padding: 5px 15px;
         border-radius: 30px;
-        color: #fff;
+        color: white;
     }
 
     nav .firstLink li a {
@@ -35,4 +38,43 @@ nav .secondLink li {
 .carousel-item img {
     width:1200px;
     height:500px;
+}
+
+.wrapper img {
+    height:400px;
+    width:500px;
+    border-radius:50px;
+}
+
+.wrapper {
+   margin: 20px 40px;
+}
+
+.about-box{
+display: flex;
+justify-content:space-between;
+}
+
+.wrapper h3 {
+    color: mediumpurple;
+    text-decoration: underline;
+}
+
+.wrapper p {
+    font-size: 20px;
+}
+.left {
+    width: 600px;
+    height: 600px;
+    padding:40px;
+}
+
+.right {
+    margin-top:100px;
+    padding: 30px;
+    border-radius: 50px;
+    width: 500px;
+    height: 300px;
+    color: white;
+    background-color: mediumpurple;
 }

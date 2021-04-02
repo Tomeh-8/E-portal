@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using student_management_system.data.Interface;
+using student_management_system.data.Repositories;
 using student_management_system.Models;
 
 namespace student_management_system
@@ -35,7 +37,9 @@ namespace student_management_system
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@";
                 options.User.RequireUniqueEmail = true;
             });
-            
+            services.AddTransient<IBioDataRepository, BioDataRepository>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -164,4 +164,7 @@ C:\Users\HP\source\repos\student management system\student management system\bin
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\student management system.csproj.CoreCompileInputs.cache
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\student management system.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\StudentCourse.cshtml.g.cs
-C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\CourseCreate.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\EditBioData.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\CreateCourse.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\EditCourse.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\DeleteCourse.cshtml.g.cs

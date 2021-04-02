@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using student_management_system.Models;
+using student_management_system.data.Interface;
 
 namespace student_management_system.Controllers
 {
     public class ProfileController : Controller
     {
-        private readonly StudentDbcontext _db;
+        private readonly IBioDataRepository _biodataRepository;
+        private readonly ICourseRepository _courseRepository;
 
-        public ProfileController(StudentDbcontext db)
+        public ProfileController(IBioDataRepository biodataRepository, ICourseRepository courseRepository)
         {
-            _db = db;
+            _biodataRepository = biodataRepository;
+            _courseRepository = courseRepository;
         }
         
         public IActionResult Index()
@@ -27,62 +30,130 @@ namespace student_management_system.Controllers
         public IActionResult BioData()
         {
             var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var biodata = _db.studentInfo.Where(a => a.StudentId == UserId);
+            var biodata = _biodataRepository.GetAllStudentsInfo().Where(b => b.StudentId == UserId);
             return View(biodata);
         }
 
+        [HttpGet]
         public IActionResult CreateBioData()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBioData(student_management_system.Models.Student model)
+        public IActionResult CreateBioData(Student model)
         {
 
             model.StudentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (ModelState.IsValid)
             {
-                _db.Add(model);
-                await _db.SaveChangesAsync();
+                _biodataRepository.AddStudentInfo(model);
                 return RedirectToAction("Biodata");
             }
 
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult EditBioData(string id)
+        {
+            if(id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var showBioData = _biodataRepository.GetStudentInfo(id);
+            return View(showBioData);
+        }
 
+        [HttpPost]
+        public IActionResult EditBioData(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                Student studentInfo =  _biodataRepository.EditStudentInfo(student);
+                return RedirectToAction("Biodata");
+            }
+            
+            return View(student);
+        }
+        
+        
+        
        public IActionResult StudentCourse()
         {
             var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            // var displayContent = _db.studentCourse.Where(a => a.CourseId == model.CourseId);
-            var courses = _db.studentCourse.Where(x => x.RefId == UserId).ToList();
+            var courses = _courseRepository.ShowCourses().Where(x => x.RefId == UserId).ToList();
             return View(courses);
         }
 
-        public IActionResult CourseCreate()
+        [HttpGet]
+        public IActionResult CreateCourse()
         {
         
             return View();
         }
 
 
-
-
         [HttpPost]
-        public async Task<IActionResult> CourseCreate(student_management_system.Models.StudentCourse model)
+        public IActionResult CreateCourse(StudentCourse course)
         {
-            model.RefId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            course.RefId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (ModelState.IsValid)
             {
-                _db.Add(model);
-                await _db.SaveChangesAsync();
+                _courseRepository.AddCourse(course);
                 return RedirectToAction("StudentCourse");
             }
             
-            return View(model);
+            return View(course);
+        }
+        
+        [HttpGet]
+        public IActionResult EditCourse(int id)
+        { 
+            if(id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var showCourse = _courseRepository.GetCourse(id);
+
+            return View(showCourse);
         }
 
+        [HttpPost]
+        public IActionResult EditCourse(StudentCourse course)
+        {
+            if (ModelState.IsValid)
+            {
+                StudentCourse courseChanges = _courseRepository.EditCourse(course);
+                return RedirectToAction("StudentCourse");
+            }
+
+            return View(course);
+        }
+
+        [HttpGet]
+        public IActionResult DeleteCourse(int id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var deletedCourse = _courseRepository.GetCourse(id);
+
+            return View(deletedCourse);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteCourse(StudentCourse course )
+        {
+            if (ModelState.IsValid)
+            {
+                StudentCourse deletedCourse = _courseRepository.DeleteCourse(course);
+                return RedirectToAction("StudentCourse");
+            }
+
+            return View(course);
+        }
     }
 }
        

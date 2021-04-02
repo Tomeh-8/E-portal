@@ -7,65 +7,84 @@
 
 <h1>BioData</h1>
 
-<p>
-    <a asp-action="CreateBioData">Create New</a>
-</p>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StateOfOrigin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nationality)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StateOfOrigin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nationality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> ||
-                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+         {
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StateOfOrigin)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateOfOrigin)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nationality)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nationality)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+            </tr>
+            <tr>
+                 <td>
+
+                     
+                     @if (item.Nationality == null)
+                     {
+                         <p>
+                             <a asp-action="CreateBioData">Create New</a>
+                         </p>
+                     }
+                     else
+                     {
+                         <a asp-action="EditBioData" asp-route-id="@item.StudentId">Edit</a>
+                     }
+
+                 </td>
+             </tr> 
+         }
     </tbody>
 </table>
