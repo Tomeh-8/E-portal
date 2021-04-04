@@ -110,10 +110,6 @@ namespace student_management_system.Controllers
         [HttpGet]
         public IActionResult EditCourse(int id)
         { 
-            if(id == null)
-            {
-                return RedirectToAction("Index");
-            }
             var showCourse = _courseRepository.GetCourse(id);
 
             return View(showCourse);
@@ -134,10 +130,6 @@ namespace student_management_system.Controllers
         [HttpGet]
         public IActionResult DeleteCourse(int id)
         {
-            if (id == null)
-            {
-                return RedirectToAction("Index");
-            }
             var deletedCourse = _courseRepository.GetCourse(id);
 
             return View(deletedCourse);

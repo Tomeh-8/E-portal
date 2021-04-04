@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Login</h1>
 
-<h4>Login</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
+<div class="row loginWrapper">
+    <div><img src="/images/pic23.jpg" alt="Alternate Text" /></div>
+    <div class="col-md-4 card mx-auto login">
+        <h3 class="card-title text-center mt-4">Login</h3>
+        <form asp-action="Login" class="card-body">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
@@ -29,13 +29,9 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Login" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 

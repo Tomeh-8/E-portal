@@ -4,15 +4,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="contact-body">
-        <h1 class="text-center">CONNECT WITH US!</h1>
-        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>Email: <span>tominiyi2020@gmail.com</span></p>
-        <div class="contact-box">
-            <div class="contact-left">
+    <div class="contact-body col-md-8 mx-auto">
+        <h2 class="text-center mt-4">CONNECT WITH US</h2>
+        <div class="contact-box mt-5">
+            <div class="contact-left mt-5">
+                <div class="mb-5">
+                    <p><i class="fa fa-location-arrow" aria-hidden="true"></i> 15 Friendly Avenue, Car-Wash Abeokuta. Ogun State</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> +234 7015746956</p>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i> tominiyi2020@gmail.com</p>
+                </div>
+                <ul class="social-links">
+                    <li><i class="fa fa-play" aria-hidden="true"></i> facebook</a></li>
+                    <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i> twitter</a></li>
+                    <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i> instagram</a></li>
+                    <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i> linkedin</a></li>
+                </ul>
 
             </div>
 
             <div class="contact-right">
+                <h3 class="text-center">Contact Us</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="name"  class="form-control" placeholder="Enter Fullname..."/>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Enter Email Address..." />
+                    </div>
+                    <div class="form-group" >
+                        <input type="number" class="form-control" placeholder="Enter Phone number..."/>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="3" class="form-control" placeholder="Enter Message..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type ="submit" class="form-control btn btn-primary">Send</button>
+                    </div>
+                </form>
 
             </div>
         </div>

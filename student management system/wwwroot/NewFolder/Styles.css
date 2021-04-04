@@ -1,4 +1,10 @@
-﻿body {
+﻿*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: #f6f8f8;
     font-family: 'Poppins', sans-serif;
 }
@@ -63,13 +69,13 @@ justify-content:space-between;
 .wrapper p {
     font-size: 20px;
 }
-.left {
+.wrapper .left {
     width: 600px;
     height: 600px;
     padding:40px;
 }
 
-.right {
+.wrapper .right {
     margin-top:100px;
     padding: 30px;
     border-radius: 50px;
@@ -78,3 +84,65 @@ justify-content:space-between;
     color: white;
     background-color: mediumpurple;
 }
+
+.login{
+    color: mediumpurple;
+    border-radius:10px;
+}
+
+.register{
+    color:mediumpurple;
+    border-radius: 10px;
+}
+.registerWrapper{
+    display:flex;
+}
+
+.registerWrapper img{
+    width: 700px;
+    height: 600px;
+    border-radius: 16px;
+}
+
+.loginWrapper{
+    display:flex;
+}
+
+.loginWrapper img{
+    width: 600px;
+    height: 400px;
+    border-radius: 16px;
+}
+
+.contact-box{
+    display:flex;
+    color: mediumpurple;
+}
+
+.contact-box .contact-left{
+    margin-right: 50px;
+}
+
+.contact-box .contact-right form{
+    width: 400px;
+}
+
+.contact-box .contact-right input{
+   border-radius: 10px;
+}
+
+.contact-body {
+    color: mediumpurple;
+    height: 500px;
+}
+.contact-body {
+     height: 500px;
+}
+
+.social-links {
+    list-style: none;
+}
+
+
+
+

@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Register</h1>
 
-<h4>Register</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
+<div class="row registerWrapper">
+    <div class="reg-img mt-auto"><img src="/images/pic25.jpg" alt="Alternate Text" /></div>
+    <div class="col-md-4 register card mx-auto">
+        <h4 class="card-title text-center mt-4">Register</h4>
+        <form asp-action="Register" class="card-body">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -39,13 +39,9 @@
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Register" class="btn btn-primary mx-auto" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
