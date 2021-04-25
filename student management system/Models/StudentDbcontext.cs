@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using student_management_system.Models;
 
 namespace student_management_system.Models
 {
@@ -18,6 +19,8 @@ namespace student_management_system.Models
 
         public DbSet<Student> studentInfo { get; set; }
 
+        public DbSet<ProfileImage> profileImage { get; set; }
+
 
 
 
@@ -30,6 +33,11 @@ namespace student_management_system.Models
 
             base.OnModelCreating(builder);
         }
+
+
+
+
+        public DbSet<student_management_system.Models.ProfileImage> ProfileImage { get; set; }
     }
 
   

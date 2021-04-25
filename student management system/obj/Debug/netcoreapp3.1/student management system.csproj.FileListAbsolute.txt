@@ -438,3 +438,6 @@ C:\Users\HP\source\repos\student management system\student management system\bin
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\student management system.csproj.CoreCompileInputs.cache
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\student management system.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\student management system.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\DeleteProfileImage.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\CreateProfileImage.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\ProfileImage.cshtml.g.cs

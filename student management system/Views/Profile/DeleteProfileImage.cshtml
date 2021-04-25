@@ -1,0 +1,24 @@
+﻿@model student_management_system.Models.ProfileImage
+
+@{
+    ViewData["Title"] = "DeleteProfileImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Are you sure you want to delete this profile image?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            <img src="@("~/images/" + Model.ImagePath)" alt="Profile picture" asp-append-version="true" width="300px" height="300px" />
+        </dt>
+      
+    </dl>
+    
+    <form asp-action="DeleteProfileImage">
+        <input type="hidden" asp-for="ImageId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

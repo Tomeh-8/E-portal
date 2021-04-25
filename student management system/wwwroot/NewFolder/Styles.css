@@ -18,10 +18,8 @@ nav .firstLink li {
 }
 
     nav .firstLink li:hover a {
-        background-color: mediumpurple;
-        border: 2px solid #e0e4cc;
+        border-bottom: 2px solid #e0e4cc;
         padding: 5px 15px;
-        border-radius: 30px;
         color: white;
     }
 
@@ -40,6 +38,14 @@ nav .secondLink li {
  nav .secondLink li a {
     color: #fff;
  }
+
+    nav .secondLink li button {
+        background-color: transparent;
+        border-radius: 30px;
+        color: #fff;
+        border: 2px solid transparent;
+        outline:none;
+    }
 
 .carousel-item img {
     width:1200px;
@@ -64,6 +70,7 @@ justify-content:space-between;
 .wrapper h3 {
     color: mediumpurple;
     text-decoration: underline;
+    transition: all 5s ease-in-out;
 }
 
 .wrapper p {
@@ -144,5 +151,67 @@ justify-content:space-between;
 }
 
 
+@media only screen and (max-width: 600px){
+    .container {
+         display: flex;
+    }
+
+    .container .menu ul{
+      
+    }
+
+   
+    #slides{
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    #slides img {
+         width: 400px;
+         height: 400px;
+    }
+}
+
+.profilePage {
+    display: flex;
+}
+
+
+.profileImage {
+    flex-basis: 40%;
+    margin-right: 50px;
+}
+
+.profilePage ul {
+   flex-basis: 60%;
+}
+
+.profilePage img {
+    flex-basis: 60%;
+    border-radius: 40px;
+    margin-bottom:20px;
+}
+
+.profileHeading {
+    margin-bottom: 40px;
+    color: white;
+    background-color:mediumpurple;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.profileImage button {
+    padding: 3px;
+    background-color:mediumpurple;
+    border-radius: 10px;
+    width: 200px;
+}
+.profileImage button a{
+    color: white;
+}
+.profilePage h3 {
+    color: blue;
+    margin-top: 50px;
+}
 
 

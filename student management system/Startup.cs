@@ -39,6 +39,7 @@ namespace student_management_system
             });
             services.AddTransient<IBioDataRepository, BioDataRepository>();
             services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<IImageRepository, ImageRepository>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
         }

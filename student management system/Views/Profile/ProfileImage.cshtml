@@ -1,0 +1,18 @@
+﻿@model IEnumerable<student_management_system.Models.ProfileImage>
+
+@{
+    ViewData["Title"] = "ProfileImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ProfileImage</h1>
+
+<p>
+    <a asp-action="CreateProfileImage">Create New</a>
+</p>
+@foreach (var item in Model)
+{
+
+<img src="@("~/images/" + item.ImagePath)" alt="Profile picture" asp-append-version="true"  width="300px" height="300px" />
+<a asp-action= "DeleteProfileImage" asp-route-id="@item.ImageId" >Delete</a>
+}   

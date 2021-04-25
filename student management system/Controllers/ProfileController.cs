@@ -8,6 +8,8 @@ using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using student_management_system.Models;
 using student_management_system.data.Interface;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace student_management_system.Controllers
 {
@@ -15,17 +17,79 @@ namespace student_management_system.Controllers
     {
         private readonly IBioDataRepository _biodataRepository;
         private readonly ICourseRepository _courseRepository;
+        private readonly IImageRepository _imageRepository;
+        private readonly IWebHostEnvironment hostEnvironment;
 
-        public ProfileController(IBioDataRepository biodataRepository, ICourseRepository courseRepository)
+        public ProfileController(IBioDataRepository biodataRepository, ICourseRepository courseRepository, IImageRepository imageRepository, IWebHostEnvironment hostEnvironment)
         {
             _biodataRepository = biodataRepository;
             _courseRepository = courseRepository;
+            _imageRepository = imageRepository;
+            this.hostEnvironment = hostEnvironment;
         }
         
         public IActionResult Index()
         {
+            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var image = _imageRepository.ShowImages().Where(b => b.ImageId == UserId);
+            return View(image);
+        }
+
+        public IActionResult ProfileImage()
+        {
+            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var image = _imageRepository.ShowImages().Where(b => b.ImageId == UserId);
+            return View(image);
+        }
+
+        public IActionResult CreateProfileImage()
+        {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProfileImage(ProfileImage model)
+        {
+            model.ImageId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (ModelState.IsValid)
+            {
+                //saave images to wwwrooot/image
+                string webRootPath = hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                model.ImagePath = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(webRootPath + "/images/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await model.ImageFile.CopyToAsync(fileStream);
+                }
+
+                //insert record
+                _imageRepository.AddImage(model);
+                 return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
+        public IActionResult DeleteProfileImage(string id)
+        {
+            var deletedImage = _imageRepository.GetImage(id);
+            return View(deletedImage);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProfileImage(ProfileImage model)
+        {
+            if (ModelState.IsValid)
+            {
+                ProfileImage deletedImage = _imageRepository.DeleteImage(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
 
         public IActionResult BioData()
         {
