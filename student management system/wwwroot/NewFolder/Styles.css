@@ -150,6 +150,40 @@ justify-content:space-between;
     list-style: none;
 }
 
+.profile-nav{
+width: 1100px;
+margin-bottom: 50px;
+}
+
+.profile-nav ul {
+    list-style: none;
+    margin-left:600px;
+}
+
+.profile-nav ul li {
+   display: inline;
+   margin-right: 50px;
+   background-color: blue;
+   padding:10px;
+   border-radius: 10px;
+  
+}
+
+.profileImage ul li a {
+    color: white;
+}
+
+.general-info{
+    display: flex;
+  
+   
+}
+.image-profile{
+    margin-right: 150px;
+}
+.class-info .contact-info{
+
+}
 
 @media only screen and (max-width: 600px){
     .container {

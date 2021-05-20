@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -26,6 +28,16 @@ namespace student_management_system.Models
 
         public string Address { get; set; }
 
+        public string Department { get; set; }
+
+        public int Level { get; set; }
+
+        [DisplayName("Upload File")]
+        public string ImagePath { get; set; }
+
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
+        
         public virtual ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }

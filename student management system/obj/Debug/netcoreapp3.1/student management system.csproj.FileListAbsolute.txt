@@ -52,9 +52,7 @@ C:\Users\HP\source\repos\student management system\student management system\obj
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Student\Contact.cshtml.g.cs
 C:\Users\HP\source\repos\student management system\student management system\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\BioData.cshtml.g.cs
-C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\CreateBioData.cshtml.g.cs
 C:\Users\HP\source\repos\student management system\student management system\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\HP\source\repos\student management system\student management system\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\HP\source\repos\student management system\student management system\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -441,3 +439,5 @@ C:\Users\HP\source\repos\student management system\student management system\obj
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\DeleteProfileImage.cshtml.g.cs
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\CreateProfileImage.cshtml.g.cs
 C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\ProfileImage.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
+C:\Users\HP\source\repos\student management system\student management system\obj\Debug\netcoreapp3.1\Razor\Views\Profile\CreateBioData.cshtml.g.cs

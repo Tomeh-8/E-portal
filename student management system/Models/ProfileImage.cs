@@ -21,5 +21,9 @@ namespace student_management_system.Models
         [NotMapped]
         public IFormFile ImageFile { get; set; }
 
+        public string StudentId { get; set; }
+
+        [ForeignKey("StudentId")]
+        public virtual Student Student { get; set; }
     }
 }

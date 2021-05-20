@@ -238,7 +238,12 @@ namespace student_management_system.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ImageId");
+
+                    b.HasIndex("StudentId");
 
                     b.ToTable("ProfileImage");
                 });
@@ -254,11 +259,20 @@ namespace student_management_system.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<string>("Department")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nationality")
                         .HasColumnType("nvarchar(max)");
@@ -362,6 +376,15 @@ namespace student_management_system.Migrations
                         .HasForeignKey("StudentsStudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("student_management_system.Models.ProfileImage", b =>
+                {
+                    b.HasOne("student_management_system.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId");
+
+                    b.Navigation("Student");
                 });
 #pragma warning restore 612, 618
         }

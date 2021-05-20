@@ -7,88 +7,94 @@
 
 <h1>BioData</h1>
 
+@if (Model.Count() < 1)
+{
+    <a asp-action="CreateBioData">Create Your Biodata</a>
+}
 <table class="table">
     <tbody>
+
         @foreach (var item in Model)
         {
 
-            @if (item.Age == null)
-            {
-                <tr>
-                    <td>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StateOfOrigin)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateOfOrigin)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nationality)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nationality)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Level)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                        <a asp-action="CreateBioData">Create Your Biodata</a>
-                    </td>
-                </tr>
-
-            }
-            else
-            {
-
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstName)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LastName)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.StateOfOrigin)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StateOfOrigin)
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nationality)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nationality)
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Age)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Age)
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhoneNumber)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PhoneNumber)
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Address)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-
-                        <a asp-action="EditBioData" asp-route-id="@item.StudentId">Edit</a>
-                    </td>
-                </tr>
-
-            }
+                    <a asp-action="EditBioData" asp-route-id="@item.StudentId">Edit</a>
+                </td>
+            </tr>
 
         }
     </tbody>

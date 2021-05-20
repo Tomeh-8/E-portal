@@ -31,8 +31,9 @@ namespace student_management_system.Controllers
         public IActionResult Index()
         {
             var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var image = _imageRepository.ShowImages().Where(b => b.ImageId == UserId);
-            return View(image);
+            var student = _biodataRepository.GetAllStudentsInfo().Where(b => b.StudentId == UserId);
+
+            return View(student);
         }
 
         public IActionResult ProfileImage()
@@ -105,14 +106,24 @@ namespace student_management_system.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateBioData(Student model)
+        public async Task<IActionResult> CreateBioData(Student model)
         {
-
             model.StudentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (ModelState.IsValid)
             {
+                //saave images to wwwrooot/image
+                string webRootPath = hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                model.ImagePath = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(webRootPath + "/images/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await model.ImageFile.CopyToAsync(fileStream);
+                }
+
                 _biodataRepository.AddStudentInfo(model);
-                return RedirectToAction("Biodata");
+                return RedirectToAction("Index");
             }
 
             return View(model);
@@ -130,15 +141,25 @@ namespace student_management_system.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditBioData(Student student)
+        public async Task<IActionResult> EditBioData(Student model)
         {
             if (ModelState.IsValid)
-            {
-                Student studentInfo =  _biodataRepository.EditStudentInfo(student);
-                return RedirectToAction("Biodata");
+            { //saave images to wwwrooot/image
+                string webRootPath = hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                model.ImagePath = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(webRootPath + "/images/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await model.ImageFile.CopyToAsync(fileStream);
+                }
+
+                Student studentInfo =  _biodataRepository.EditStudentInfo(model);
+                return RedirectToAction("Index");
             }
             
-            return View(student);
+            return View(model);
         }
         
         
