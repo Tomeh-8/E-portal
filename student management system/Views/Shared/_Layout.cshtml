@@ -14,14 +14,16 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
+        <nav class="mobile-wrapper layout-wrapper navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container">
-                <a class="navbar-brand img-fluid" asp-area="" asp-controller="Student" asp-action="Index"><img src="/images/logo.png" alt="school logo" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="menu navbar-collapse collapse">
+                <div class="layout-nav">
+                    <a class="navbar-brand img-fluid" asp-area="" asp-controller="Student" asp-action="Index"><img src="/images/logo.png" alt="school logo" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="nav-menu menu navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto firstLink">
                         <li class="nav-item ">
                             <a class="nav-link text-primary  " asp-area="" asp-controller="Student" asp-action="Index">Home</a>
@@ -35,7 +37,7 @@
                     </ul>
 
                 </div>
-                <div class="navbar-collapse collapse">
+                <div class="login-button navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto secondLink">
 
                         @if (signInManager.IsSignedIn(User))
@@ -71,7 +73,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - student_management_system - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - student management system  
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

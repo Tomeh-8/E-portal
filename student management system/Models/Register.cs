@@ -10,9 +10,9 @@ namespace student_management_system.Models
     {
         [Key]
         public int ID { get; set; }
-        public string FirstName { get; set; }
 
-        public string LastName { get; set; }
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
         
         [EmailAddress]
         public string Email { get; set; }

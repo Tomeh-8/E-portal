@@ -17,15 +17,15 @@ nav .firstLink li {
     margin-right: 100px;
 }
 
-    nav .firstLink li:hover a {
+ nav .firstLink li:hover a {
         border-bottom: 2px solid #e0e4cc;
         padding: 5px 15px;
         color: white;
-    }
+  }
 
-    nav .firstLink li a {
+ nav .firstLink li a {
         font-size: 20px;
-    }
+ }
 
 nav .secondLink li {
     background-color: mediumpurple;
@@ -52,13 +52,13 @@ nav .secondLink li {
     height:500px;
 }
 
-.wrapper img {
+.about-wrapper img {
     height:400px;
     width:500px;
     border-radius:50px;
 }
 
-.wrapper {
+.about-wrapper {
    margin: 20px 40px;
 }
 
@@ -67,22 +67,22 @@ display: flex;
 justify-content:space-between;
 }
 
-.wrapper h3 {
+.about-wrapper h3 {
     color: mediumpurple;
     text-decoration: underline;
     transition: all 5s ease-in-out;
 }
 
-.wrapper p {
+.about-wrapper p {
     font-size: 20px;
 }
-.wrapper .left {
+.about-wrapper .left {
     width: 600px;
     height: 600px;
     padding:40px;
 }
 
-.wrapper .right {
+.about-wrapper .right {
     margin-top:100px;
     padding: 30px;
     border-radius: 50px;
@@ -97,12 +97,13 @@ justify-content:space-between;
     border-radius:10px;
 }
 
-.register{
+.register-right{
     color:mediumpurple;
     border-radius: 10px;
 }
 .registerWrapper{
     display:flex;
+    margin-top: 5px;
 }
 
 .registerWrapper img{
@@ -111,8 +112,9 @@ justify-content:space-between;
     border-radius: 16px;
 }
 
-.loginWrapper{
-    display:flex;
+.loginWrapper {
+    margin-top: 5px;
+    display: flex;
 }
 
 .loginWrapper img{
@@ -121,13 +123,15 @@ justify-content:space-between;
     border-radius: 16px;
 }
 
-.contact-box{
-    display:flex;
+.contact-box {
+    display: flex;
     color: mediumpurple;
+    margin-top:30px;
 }
 
 .contact-box .contact-left{
     margin-right: 50px;
+    margin-top:15px;
 }
 
 .contact-box .contact-right form{
@@ -142,8 +146,8 @@ justify-content:space-between;
     color: mediumpurple;
     height: 500px;
 }
-.contact-body {
-     height: 500px;
+.contact-body h2 {
+     margin-top: 10px;
 }
 
 .social-links {
@@ -163,7 +167,7 @@ margin-bottom: 50px;
 .profile-nav ul li {
    display: inline;
    margin-right: 50px;
-   background-color: blue;
+   background-color: mediumpurple;
    padding:10px;
    border-radius: 10px;
   
@@ -181,30 +185,6 @@ margin-bottom: 50px;
 .image-profile{
     margin-right: 150px;
 }
-.class-info .contact-info{
-
-}
-
-@media only screen and (max-width: 600px){
-    .container {
-         display: flex;
-    }
-
-    .container .menu ul{
-      
-    }
-
-   
-    #slides{
-        width: 80%;
-        margin: 0 auto;
-    }
-    
-    #slides img {
-         width: 400px;
-         height: 400px;
-    }
-}
 
 .profilePage {
     display: flex;
@@ -217,35 +197,212 @@ margin-bottom: 50px;
 }
 
 .profilePage ul {
-   flex-basis: 60%;
+    flex-basis: 60%;
 }
 
 .profilePage img {
     flex-basis: 60%;
     border-radius: 40px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .profileHeading {
     margin-bottom: 40px;
     color: white;
-    background-color:mediumpurple;
+    background-color: mediumpurple;
     border-radius: 10px;
     padding: 5px;
 }
 
 .profileImage button {
     padding: 3px;
-    background-color:mediumpurple;
+    background-color: mediumpurple;
     border-radius: 10px;
     width: 200px;
 }
-.profileImage button a{
-    color: white;
-}
+
+.profileImage button a {
+        color: white;
+ }
+
 .profilePage h3 {
     color: blue;
     margin-top: 50px;
 }
 
+
+
+
+@media only screen and (max-width: 600px){
+    .container {
+        display: flex;
+        flex-direction: column;   
+    }
+
+    .container .navbar-toggler{
+       height: 50px;
+       outline:none;
+    }
+
+    .layout-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 5px auto;
+    }
+
+    .nav-menu {
+        width: 80%;
+        margin: 5px auto;
+        text-align: center;
+    }
+   
+    .nav-menu .navbar-nav .nav-item{
+        width: 100%;
+    }
+
+    .nav-menu .navbar-nav .nav-item .nav-link{
+        width: 150px;
+        margin: 3px auto;
+    }
+
+    .login-button {
+        width: 80%;
+        margin: 5px auto;
+
+    }
+
+    .login-button ul li{
+        width:200px;
+        text-align:center;
+        margin-left:90px;
+    }
+
+    #slides {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    #slides img {
+         width: 400px;
+         height: 250px;
+         border-radius:10px;
+    }
+
+
+    .about-wrapper .about-box {
+        display:flex;
+        flex-direction:column;
+       
+    }
+
+    .about-wrapper .about-box .left{
+        width:100%;
+        margin-bottom:5px;
+        padding:10px;
+        flex-basis:20%
+    }
+
+    .about-wrapper .about-box .right{
+        width:100%;
+        flex-basis:80%;
+        margin-top:10px;
+    }
+    .about-wrapper .about-box img {
+       width:100%;
+    }
+    .contact-body {
+        height:200vh;
+    }
+    .contact-box {
+        padding: 10px;
+        flex-direction: column;
+        margin-top: 0px;
+        
+    }
+    .contact-box .contact-left{
+        margin-top:0;
+    }
+
+    .registerWrapper{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        
+    }
+
+    .registerWrapper img{
+        width: 400px;
+        height: 300px;    
+    }
+
+    .registerWrapper .register-right{
+        width: 400px;
+        margin-top:10px;
+    }
+
+    .loginWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+   
+    }
+
+    .loginWrapper img {
+        width: 400px;
+        height: 300px;
+    }
+
+    .login-right {
+        margin-top: 10px;
+        width: 400px;
+        
+    }
+
+    .profileHeading h2 {
+        margin-bottom: 5px;
+        width: 80%;
+        margin: 5px auto;
+    }
+
+    .profile-nav ul{
+        margin-left:10px;
+    }
+
+    .profilePage .general-info {
+        flex-direction: column;
+        padding: 10px;
+       
+    }
+
+    .profilePage .general-info .class-info{
+        width: 100%;
+    }
+
+    .profileImage {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .profilePage {
+        width: 80%;
+        margin: 5px auto;
+    }
+
+    .profile-wrapper{
+        overflow-x: hidden;
+    }
+
+    .biodata, .edit-biodata{
+        padding: 20px;
+    }
+
+    .student-course, .delete-course, .create-course, .edit-course {
+        padding: 20px;
+    }
+
+    
+    
+}
 

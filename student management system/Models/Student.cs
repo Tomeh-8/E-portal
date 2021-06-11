@@ -13,18 +13,23 @@ namespace student_management_system.Models
     {
         [Key]
         public string StudentId { get; set; }
-
+        
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
-
+       
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
 
+        [DisplayName("State Of Origin")]
         public string StateOfOrigin { get; set; }
 
         public string Nationality { get; set; }
 
         public int Age { get; set; }
 
-        public int PhoneNumber { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [DisplayName("Phone Number")]
+        public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
 

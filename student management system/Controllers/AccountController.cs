@@ -10,12 +10,12 @@ namespace student_management_system.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
         
         [HttpGet]
@@ -32,13 +32,13 @@ namespace student_management_system.Controllers
                 var user = new ApplicationUser
                 {
                     Email = model.Email,
-                    UserName = model.FirstName
+                    UserName = model.UserName
                 };
 
-                var data = await userManager.CreateAsync(user, model.Password);
+                var data = await _userManager.CreateAsync(user, model.Password);
                 if (data.Succeeded)
                 {
-                    await signInManager.SignInAsync(user, isPersistent: false);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("index", "profile");
                 }
 
@@ -64,7 +64,7 @@ namespace student_management_system.Controllers
         {
             if (ModelState.IsValid)
             {
-                var data = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var data = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
                 if (data.Succeeded)
                 {
                     return RedirectToAction("index", "profile");
@@ -78,7 +78,7 @@ namespace student_management_system.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync();
             return RedirectToAction("index", "student");
         }
         
