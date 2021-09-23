@@ -1,10 +1,9 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
-//using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using student_management_system.Models;
-//using IdentityUser = Microsoft.AspNet.Identity.EntityFramework.IdentityUser;
+using Microsoft.AspNetCore.Http;
 
 namespace student_management_system.Controllers
 {
@@ -25,7 +24,7 @@ namespace student_management_system.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(student_management_system.Models.Register model)
+        public async Task<IActionResult> Register(Register model)
         {
             if (ModelState.IsValid)
             {
@@ -35,14 +34,14 @@ namespace student_management_system.Controllers
                     UserName = model.UserName
                 };
 
-                var data = await _userManager.CreateAsync(user, model.Password);
-                if (data.Succeeded)
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("index", "profile");
                 }
 
-                foreach (var error in data.Errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
@@ -60,12 +59,12 @@ namespace student_management_system.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(student_management_system.Models.Login model)
+        public async Task<IActionResult> Login(Login model)
         {
             if (ModelState.IsValid)
             {
-                var data = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
-                if (data.Succeeded)
+                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
                 {
                     return RedirectToAction("index", "profile");
                 }

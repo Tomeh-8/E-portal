@@ -1,4 +1,4 @@
-﻿@model IEnumerable<student_management_system.Models.Student>
+﻿@model IEnumerable<Student>
 
 @{
     ViewData["Title"] = "Index";
@@ -31,16 +31,7 @@
                     <div class="image-profile">
                         @foreach (var item in Model)
                         {
-                            @if (item == null)
-                            {
-                                <a>Add Profile picture</a>
-                            }
-                            else
-                            {
-                                <img src="@("~/images/" + item. ImagePath)" alt="Profile picture" asp-append-version="true" width="300px" height="300px" /> <br />
-                                //<button class="imageDelete"><a asp-action="DeleteProfileImage" asp-route-id="@item.ProfileImage.ImageId">Delete Profile Picture</a></button> <br />
-
-                            }
+                         <img src="@("~/images/" + item.ImagePath)" alt="Profile picture" asp-append-version="true" width="300px" height="300px" /> <br />
                         }
 
                     </div>

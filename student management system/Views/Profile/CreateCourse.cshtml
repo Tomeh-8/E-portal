@@ -1,4 +1,4 @@
-﻿@model student_management_system.Models.StudentCourse
+﻿@model StudentCourse
 
 @{
     ViewData["Title"] = "CreateCourse";
@@ -13,8 +13,8 @@
             <form asp-action="CreateCourse">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="RefId" class="control-label"></label>
-                    <input asp-for="RefId" class="form-control" readonly />
+                    <label asp-for="RefId" class="control-label"  hidden></label>
+                    <input asp-for="RefId" class="form-control" readonly hidden/>
                     <span asp-validation-for="RefId" class="text-danger"></span>
                 </div>
                 <div class="form-group">

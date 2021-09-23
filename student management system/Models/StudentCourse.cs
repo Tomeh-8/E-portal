@@ -12,7 +12,7 @@ namespace student_management_system.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Student")]
+       // [ForeignKey("Student")]
         public string RefId { get; set; }
 
 

@@ -14,8 +14,8 @@ namespace student_management_system.data.Interface
 
         StudentCourse GetCourse(int id);
 
-        StudentCourse DeleteCourse(StudentCourse course);
+        void DeleteCourse(StudentCourse course);
 
-        StudentCourse EditCourse(StudentCourse course);
+        void EditCourse(StudentCourse course);
     } 
 }

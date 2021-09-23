@@ -10,6 +10,7 @@ using student_management_system.Models;
 using student_management_system.data.Interface;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace student_management_system.Controllers
 {
@@ -18,16 +19,17 @@ namespace student_management_system.Controllers
         private readonly IBioDataRepository _biodataRepository;
         private readonly ICourseRepository _courseRepository;
         private readonly IImageRepository _imageRepository;
-        private readonly IWebHostEnvironment hostEnvironment;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
         public ProfileController(IBioDataRepository biodataRepository, ICourseRepository courseRepository, IImageRepository imageRepository, IWebHostEnvironment hostEnvironment)
         {
             _biodataRepository = biodataRepository;
             _courseRepository = courseRepository;
             _imageRepository = imageRepository;
-            this.hostEnvironment = hostEnvironment;
+            _hostEnvironment = hostEnvironment;
         }
         
+        [Authorize]
         public IActionResult Index()
         {
             var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -56,7 +58,7 @@ namespace student_management_system.Controllers
             if (ModelState.IsValid)
             {
                 //saave images to wwwrooot/image
-                string webRootPath = hostEnvironment.WebRootPath;
+                string webRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                 string extension = Path.GetExtension(model.ImageFile.FileName);
                 model.ImagePath = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
@@ -112,7 +114,7 @@ namespace student_management_system.Controllers
             if (ModelState.IsValid)
             {
                 //saave images to wwwrooot/image
-                string webRootPath = hostEnvironment.WebRootPath;
+                string webRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                 string extension = Path.GetExtension(model.ImageFile.FileName);
                 model.ImagePath = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
@@ -145,7 +147,7 @@ namespace student_management_system.Controllers
         {
             if (ModelState.IsValid)
             { //saave images to wwwrooot/image
-                string webRootPath = hostEnvironment.WebRootPath;
+                string webRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                 string extension = Path.GetExtension(model.ImageFile.FileName);
                 model.ImagePath = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
@@ -155,7 +157,7 @@ namespace student_management_system.Controllers
                     await model.ImageFile.CopyToAsync(fileStream);
                 }
 
-                Student studentInfo =  _biodataRepository.EditStudentInfo(model);
+                _biodataRepository.EditStudentInfo(model);
                 return RedirectToAction("Index");
             }
             
@@ -205,7 +207,7 @@ namespace student_management_system.Controllers
         {
             if (ModelState.IsValid)
             {
-                StudentCourse courseChanges = _courseRepository.EditCourse(course);
+                _courseRepository.EditCourse(course);
                 return RedirectToAction("StudentCourse");
             }
 
@@ -225,7 +227,7 @@ namespace student_management_system.Controllers
         {
             if (ModelState.IsValid)
             {
-                StudentCourse deletedCourse = _courseRepository.DeleteCourse(course);
+                _courseRepository.DeleteCourse(course);
                 return RedirectToAction("StudentCourse");
             }
 

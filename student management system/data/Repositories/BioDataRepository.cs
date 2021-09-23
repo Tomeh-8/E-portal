@@ -34,11 +34,10 @@ namespace student_management_system.data.Repositories
              return student;
         }
 
-        public Student EditStudentInfo(Student studentChanges)
+        public void EditStudentInfo(Student studentChanges)
         {
             _db.Update(studentChanges);
             _db.SaveChanges();
-            return studentChanges;
         }
         public Student GetStudentInfo(string id)
         {

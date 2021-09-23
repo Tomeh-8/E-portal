@@ -21,23 +21,15 @@ namespace student_management_system.Models
 
         public DbSet<ProfileImage> profileImage { get; set; }
 
-
-
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
-               /*  builder.Entity<Student>()
-                .HasMany(s => s.StudentCourses)
-                .WithMany(t => t.Students); */
-            
-
             base.OnModelCreating(builder);
         }
 
 
 
 
-        public DbSet<student_management_system.Models.ProfileImage> ProfileImage { get; set; }
+        
     }
 
   

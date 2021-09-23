@@ -13,72 +13,77 @@
 
 </head>
 <body>
-    <header>
-        <nav class="mobile-wrapper layout-wrapper navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
-            <div class="container">
-                <div class="layout-nav">
-                    <a class="navbar-brand img-fluid" asp-area="" asp-controller="Student" asp-action="Index"><img src="/images/logo.png" alt="school logo" /></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="nav-menu menu navbar-collapse collapse">
-                    <ul class="navbar-nav ml-auto firstLink">
-                        <li class="nav-item ">
-                            <a class="nav-link text-primary  " asp-area="" asp-controller="Student" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" asp-area="" asp-controller="Student" asp-action="Contact">Contact Us</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="login-button navbar-collapse collapse">
-                    <ul class="navbar-nav ml-auto secondLink">
-
-                        @if (signInManager.IsSignedIn(User))
-                        {
-                            <li class="nav-item">
-                                <form asp-action="logout" asp-controller="account" method="post">
-                                    <button type="submit">
-                                        Logout @User.Identity.Name
-                                    </button>
-                                </form>
-                            </li>
-
-                        }
-                        else
-                        {
-                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Register</a> </li>
-                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
-
-                        }
-
-                    </ul>
-                </div>
-
-            </div>
-        </nav>
-    </header>
-    
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <header>
+            <nav class="mobile-wrapper layout-wrapper navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
+                <div class="container">
+                    <div class="layout-nav">
+                        <a class="navbar-brand img-fluid" asp-area="" asp-controller="Student" asp-action="Index"><img src="/images/2.png" alt="school logo" /></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="nav-menu menu navbar-collapse collapse">
+                        <ul class="navbar-nav ml-auto firstLink">
+                            <li class="nav-item ">
+                                <a class="nav-link text-white-50" asp-area="" asp-controller="Student" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-area="" asp-controller="Student" asp-action="About">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-area="" asp-controller="Student" asp-action="Contact">Contact Us</a>
+                            </li>
+                        </ul>
 
-    <footer class="border-top footer text-muted">
+                    </div>
+                    <div class="login-button navbar-collapse collapse">
+                        <ul class="navbar-nav ml-auto secondLink">
+
+                            @if (signInManager.IsSignedIn(User))
+                            {
+                                <div class="navbar nav">
+                                    <li class="nav-item"><a class=" text-white" asp-area="" asp-controller="Profile" asp-action="Index">My Profile</a> </li>
+                                    <li class="nav-item">
+                                        <form asp-action="logout" asp-controller="account" method="post">
+                                            <button type="submit">
+                                                Logout @User.Identity.Name
+                                            </button>
+                                        </form>
+                                    </li>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Register</a> </li>
+                                <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
+
+                            }
+
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
         <div class="container">
-            &copy; 2021 - student management system  
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - student management system
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </div>
 </body>
 </html>

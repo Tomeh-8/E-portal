@@ -5,12 +5,23 @@
 }
 
 body {
-    background-color: #f6f8f8;
+    background-color: #f8f8f8;
     font-family: 'Poppins', sans-serif;
 }
+
+.container header {
+    background-color: #28235e;
+    color: #1b526f;
+}
+
 header img {
     height: 100px;
     width: 100px;
+}
+footer {
+    background-color: #28235e;
+    height: 40px;
+    text-align:center;
 }
 
 nav .firstLink li {
@@ -28,16 +39,16 @@ nav .firstLink li {
  }
 
 nav .secondLink li {
-    background-color: mediumpurple;
+    background-color: #414475;
     padding: 5px 15px;
-    border: 2px solid #e0e4cc;
+    border: 2px solid #414499;
     border-radius: 30px;
     margin-right: 20px;
 }
 
- nav .secondLink li a {
-    color: #fff;
- }
+    nav .secondLink li a {
+        color: #1b526f;
+    }
 
     nav .secondLink li button {
         background-color: transparent;
@@ -55,7 +66,7 @@ nav .secondLink li {
 .about-wrapper img {
     height:400px;
     width:500px;
-    border-radius:50px;
+    border-radius:5px;
 }
 
 .about-wrapper {
@@ -83,22 +94,22 @@ justify-content:space-between;
 }
 
 .about-wrapper .right {
-    margin-top:100px;
+    margin-top: 45px;
     padding: 30px;
-    border-radius: 50px;
+    border-radius: 5px;
     width: 500px;
-    height: 300px;
+    height: 200px;
     color: white;
-    background-color: mediumpurple;
+    background-color: #414499;
 }
 
-.login{
-    color: mediumpurple;
-    border-radius:10px;
+.login {
+    color: #1a3581;
+    border-radius: 10px;
 }
 
-.register-right{
-    color:mediumpurple;
+.register-right {
+    color: #1a3581;
     border-radius: 10px;
 }
 .registerWrapper{
@@ -106,10 +117,15 @@ justify-content:space-between;
     margin-top: 5px;
 }
 
+.registerWrapper .registerLeft {
+    height:500px;
+}
+
 .registerWrapper img{
-    width: 700px;
-    height: 600px;
+    width: 600px;
+    height: 90%;
     border-radius: 16px;
+    margin-top: 20px;
 }
 
 .loginWrapper {
@@ -125,17 +141,23 @@ justify-content:space-between;
 
 .contact-box {
     display: flex;
-    color: mediumpurple;
-    margin-top:30px;
+    color: #1a3581;
+    padding: 50px;
 }
 
-.contact-box .contact-left{
-    margin-right: 50px;
-    margin-top:15px;
+.contact-box .contact-left {
+    margin-right: 150px;
+    margin-top: 15px;
 }
 
-.contact-box .contact-right form{
+
+.contact-box .contact-right form {
     width: 400px;
+}
+
+.contact-box .contact-right form button {
+    background-color: #414499;
+    color:white;
 }
 
 .contact-box .contact-right input{
@@ -143,17 +165,25 @@ justify-content:space-between;
 }
 
 .contact-body {
-    color: mediumpurple;
+    color: #1a3581;
     height: 500px;
 }
 .contact-body h2 {
-     margin-top: 10px;
+     margin-top: 20px;
 }
 
 .social-links {
     list-style: none;
 }
 
+.social-links a {
+    color:#1a3581;
+}
+
+.social-links li {
+  display:inline;
+  margin-right: 20px;
+}
 .profile-nav{
 width: 1100px;
 margin-bottom: 50px;
@@ -202,7 +232,7 @@ margin-bottom: 50px;
 
 .profilePage img {
     flex-basis: 60%;
-    border-radius: 40px;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 

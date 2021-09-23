@@ -12,7 +12,7 @@ namespace student_management_system.data.Interface
 
         Student AddStudentInfo(Student student);
 
-        Student EditStudentInfo(Student student);
+        void EditStudentInfo(Student student);
 
         Student GetStudentInfo(string id);
     }

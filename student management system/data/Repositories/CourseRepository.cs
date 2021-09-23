@@ -28,11 +28,10 @@ namespace student_management_system.data.Repositories
             return course;
         }
 
-        public StudentCourse DeleteCourse(StudentCourse course)
+        public void DeleteCourse(StudentCourse course)
         {
             _db.studentCourse.Remove(course);
             _db.SaveChanges();
-            return course;
         }
 
         public StudentCourse GetCourse(int id)
@@ -40,11 +39,10 @@ namespace student_management_system.data.Repositories
             return _db.studentCourse.Find(id);
         }
 
-        public StudentCourse EditCourse(StudentCourse courseChanges)
+        public void EditCourse(StudentCourse courseChanges)
         {
             _db.Update(courseChanges);
             _db.SaveChanges();
-            return courseChanges;
         }
     }
 }
